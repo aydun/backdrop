@@ -1162,9 +1162,7 @@ function installer_manager_local_transfers_allowed() {
   // the settings file to determine if local transfers will be
   // allowed. The conf_path() may be owned by a different user but writable.
   $temporary_file = backdrop_tempnam('temporary://', 'update_');
-  $local_transfers_allowed = 
-    (fileowner($temporary_file) === fileowner(conf_path() . "/settings.php"))
-     && is_writable(conf_path());
+  $local_transfers_allowed = (fileowner($temporary_file) === fileowner(conf_path() . "/settings.php")) && is_writable(conf_path());
 
   // Clean up. If this fails, we can ignore it (since this is just a temporary
   // file anyway).
